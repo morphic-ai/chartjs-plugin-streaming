@@ -24,6 +24,11 @@ function update(mode) {
     each(me.data.datasets, (dataset, datasetIndex) => {
       const controller = me.getDatasetMeta(datasetIndex).controller;
 
+      // check if valid
+      if (!controller) {
+        return;
+      }
+
       // Set transition mode to 'quiet'
       controller._setStyle = function(element, index, _mode, active) {
         DatasetController.prototype._setStyle.call(this, element, index, 'quiet', active);
@@ -35,7 +40,7 @@ function update(mode) {
 
   if (mode === 'quiet') {
     each(me.data.datasets, (dataset, datasetIndex) => {
-      delete me.getDatasetMeta(datasetIndex).controller._setStyle;
+      delete me.getDatasetMeta(datasetIndex).controller?._setStyle;
     });
   }
 }
