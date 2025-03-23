@@ -185,8 +185,7 @@ export function getElements(chart) {
   const plugin = chart.$streaming.annotationPlugin;
 
   if (plugin) {
-    const state = plugin._getState(chart);
-    return state && state.elements || [];
+    return plugin.getAnnotations(chart);
   }
   return [];
 }
