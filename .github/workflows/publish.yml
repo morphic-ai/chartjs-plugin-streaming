@@ -6,7 +6,7 @@ on:
 
 jobs:
   publish-to-npm:
-    if: github.repository_owner == 'nagix'
+    if: github.repository_owner == 'morphic-ai'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
